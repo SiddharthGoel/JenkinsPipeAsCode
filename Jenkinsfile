@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('Echo Build Async Solution') {
             steps {
-        ECHO ON
         bat 'echo start build of sln'
         echo first step
       }
