@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Echo Build Async Solution') {
             steps {
-        bat(returnStatus: true, returnStdout: true, script: 'echo start build of sln', label: 'Echo Build Start')
+        bat(returnStatus: true, returnStdout: true, script: 'echo start build of sln')
       }
     }
     stage('Build Async Solution') {
