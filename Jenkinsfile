@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build Async Solution') {
       steps {
-        bat(script: 'echo second step', returnStatus: true, returnStdout: true)
+        bat 'Second Step'
       }
     }
   }
