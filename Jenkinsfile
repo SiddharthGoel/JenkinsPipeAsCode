@@ -1,5 +1,10 @@
 pipeline {
   agent any
+  environment {
+  GIT_NAME=$(git --no-pager show -s --format='%an' $GIT_COMMIT)
+  GIT_EMAIL=$(git --no-pager show -s --format='%ae' $GIT_COMMIT)
+}
+
   stages {
     stage('Stage 1') {
             steps {
@@ -9,8 +14,7 @@ pipeline {
     stage('Stage 2') {
       steps {
         bat 'echo Stage 2 Webhook another try $PROJECT_NAME - Build # $BUILD_NUMBER '
-        def GIT_NAME=$(git --no-pager show -s --format='%an' $GIT_COMMIT)
-        def GIT_EMAIL=$(git --no-pager show -s --format='%ae' $GIT_COMMIT)
+        
         print "BRANCH: ${env.BRANCH_NAME}, COMMIT: ${env.GIT_COMMIT}"
         print "CHANGE_AUTHOR_DISPLAY_NAME: ${env.CHANGE_AUTHOR_DISPLAY_NAME}, CHANGE_AUTHOR_EMAIL: ${env.CHANGE_AUTHOR_EMAIL}, CHANGE_AUTHOR : ${env.CHANGE_AUTHOR}"
         print "${env.GIT_NAME} "
