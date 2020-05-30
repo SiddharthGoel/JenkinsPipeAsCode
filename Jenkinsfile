@@ -1,4 +1,6 @@
 pipeline {
+ GIT_NAME=$(git --no-pager show -s --format='%an' $GIT_COMMIT)
+GIT_EMAIL=$(git --no-pager show -s --format='%ae' $GIT_COMMIT)
   agent any
   stages {
     stage('Stage 1') {
