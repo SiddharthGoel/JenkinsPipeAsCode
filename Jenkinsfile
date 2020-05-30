@@ -19,7 +19,7 @@ pipeline {
 
 Check console output at $BUILD_URL to view the results.
 
-$BUILD_LOG''', recipientProviders: [developers(), culprits(), brokenBuildSuspects(), upstreamDevelopers()], subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'nupur.singhal72@gmail.com'
+$BUILD_LOG''', recipientProviders: [developers(), culprits(), brokenBuildSuspects(), upstreamDevelopers()], subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'sidd456goel@hotmail.com'
 }
     }          
 }
