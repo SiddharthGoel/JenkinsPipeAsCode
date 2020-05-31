@@ -1,10 +1,10 @@
 pipeline {
   agent none
-  environment {
-  /*GIT_NAME=$(git --no-pager show -s --format='%an' $GIT_COMMIT)
-  GIT_EMAIL=$(git --no-pager show -s --format='%ae' $GIT_COMMIT)*/
+  /*environment {
+  GIT_NAME=$(git --no-pager show -s --format='%an' $GIT_COMMIT)
+  GIT_EMAIL=$(git --no-pager show -s --format='%ae' $GIT_COMMIT)
 }
-
+*/
   stages {
     stage('Stage 1') {
       agent { label 'master' }
