@@ -6,7 +6,7 @@ pipeline {
 }
 */
   stages {
-    stage('Inject Env Variables') {
+    stage('InjectEnvVariables') {
       agent { label 'master' }
             steps {
               load "${env.WORKSPACE}/.gitLifePRO/EnvVariables.groovy"
