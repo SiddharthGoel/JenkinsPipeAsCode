@@ -1,18 +1,17 @@
 pipeline {
-  agent none
-//   environment {
-// }
-
-  stages {
-    stage('InjectEnvVariables') {
-      agent {
+  agent {
         node{
         label 'master'
         customWorkspace 'C/Siddharth/GitWS/${env.BRANCH_NAME}'
         }
       }
+//   environment {
+// }
+
+  stages {
+    stage('InjectEnvVariables') {
       steps {
-        print "${env.WORKSPACE}"
+        print "Workspace :- ${env.WORKSPACE}"
         load "${env.WORKSPACE}/.gitLifePRO/EnvVariables.groovy"
         print "${env.SlnPath}"
         print "${env.SlnName}"
@@ -21,6 +20,7 @@ pipeline {
     stage('Build') {
       agent { label 'master' }
       steps {
+        print "Workspace :- ${env.WORKSPACE}"
         bat "echo Stage 2 Webhook another try ${env.PROJECT_NAME} - Build # ${env.BUILD_NUMBER} "
         print "${env.SlnPath}"
         print "${env.SlnName}"
