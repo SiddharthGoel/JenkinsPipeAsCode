@@ -6,10 +6,12 @@ pipeline {
 }
 */
   stages {
-    stage('Stage 1') {
+    stage('Inject Env Variables') {
       agent { label 'master' }
             steps {
-        bat 'echo Stage 1'
+              load "${env.WORKSPACE}/.gitLifePRO/EnvVariables.groovy"
+        print "${env.SlnPath}"
+        print "${env.SlnName}"
       }
     }
     stage('Stage 2') {
