@@ -17,7 +17,7 @@ pipeline {
     stage('Stage 2') {
       agent { label 'master' }
       steps {
-        bat "echo Stage 2 Webhook another try $PROJECT_NAME - Build # $BUILD_NUMBER "
+        bat "echo Stage 2 Webhook another try ${env.PROJECT_NAME} - Build # ${env.BUILD_NUMBER} "
         print "${env.SlnPath}"
         print "${env.SlnName}"
         bat "echo BRANCH: ${env.BRANCH_NAME}, COMMIT: ${env.GIT_COMMIT}"
