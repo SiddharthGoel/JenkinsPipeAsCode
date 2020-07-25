@@ -1,15 +1,17 @@
 pipeline {
   agent none
-  /*environment {
-  GIT_NAME=$(git --no-pager show -s --format='%an' $GIT_COMMIT)
-  GIT_EMAIL=$(git --no-pager show -s --format='%ae' $GIT_COMMIT)
+  environment {
+  load "${env.WORKSPACE}/.gitLifePRO/EnvVariables.groovy"
+  ws(${env.GitWorkspace}) {
+  sh "pwd"
 }
-*/
+}
+
   stages {
     stage('InjectEnvVariables') {
       agent { label 'master' }
             steps {
-              load "${env.WORKSPACE}/.gitLifePRO/EnvVariables.groovy"
+              
         print "${env.SlnPath}"
         print "${env.SlnName}"
       }
