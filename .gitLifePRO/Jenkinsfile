@@ -12,7 +12,7 @@ pipeline {
     stage('AllocateWorkspace'){
       steps{
       sh 'pwd'
-        ws("C/Siddharth/GitWS/${env.BRANCH_NAME}") {
+        ws("C:/Siddharth/GitWS/${env.BRANCH_NAME}") {
           sh 'pwd'
         }
       }
